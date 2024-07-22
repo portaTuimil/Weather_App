@@ -1,0 +1,23 @@
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #343a40;
+}
+
+.navbar > .container-fluid {
+    justify-content: space-around;
+}
+
+.navbar > .container-fluid > .navbar-brand{
+    font-size: 1.8rem;
+}
+
+img {
+    height: 80vh;
+    object-fit: cover;
+}
+
+.carouselDiv{
+    margin: auto;
+}
