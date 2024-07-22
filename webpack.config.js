@@ -2,12 +2,12 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = { 
- 		entry:['./src/index.js', './src/main.css', './src/style.css'],
+ 		entry:['./src/index.js', './src/main.css', './src/style.css', './src/assets/madrid.jpg', './src/assets/paris.jpg', './src/assets/rome.jpg'],
     output: {
       filename: 'main.js',
       clean: true,
       path: path.resolve(__dirname, 'dist'),
-      assetModuleFilename: 'assets/[hash][ext][query]'
+      assetModuleFilename: 'assets/[name][ext]'
     },
     devServer: {
       static: {
@@ -36,8 +36,8 @@ module.exports = {
           type: 'asset/resource',
         },
         {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: 'asset/resource',
         },
       ]
     }
