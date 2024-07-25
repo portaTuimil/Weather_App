@@ -27,22 +27,17 @@ body{
 }
 
 .rowContainer{
-    display: grid;
-    grid-template-rows: 2fr 1fr 1fr;
     height: 100%;
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #currentCard{
-    height: 100%;
     width: 100%;
     border-radius: 30px;
-}
-
-.rowContainer > * {
-    display: grid;
-    grid-template-columns: 3fr 1fr 1fr;
-    padding: 10px;
 }
 
 .title{
@@ -53,4 +48,14 @@ body{
     height: 6rem;
     width: 6rem;
     margin: 30px;
+}
+
+.hourDiv{
+    width: 15%;
+}
+
+.row2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
