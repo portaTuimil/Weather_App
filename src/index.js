@@ -19,6 +19,7 @@ async function retrieveData(city){
 
 function buildInterface(data){
     content.firstElementChild.remove();
+    if (content.firstElementChild){content.firstElementChild.remove()};
     content.classList.add("rowContainer");
 
     //Current weather Card:
@@ -45,6 +46,9 @@ function buildInterface(data){
         wCard.classList.add("card", "text-bg-dark", "hourDiv");
         sRow.appendChild(wCard)
         wCard.appendChild(hourText)
+        const hourImg = document.createElement('img'); 
+        hourImg.src = "https:" + data.forecast.forecastday[0].hour[i].condition.icon;  
+        wCard.appendChild(hourImg).classList.add("hourImg")
     }
 }
 
@@ -55,7 +59,11 @@ const madrid = document.querySelector("#madrid");
 const paris = document.querySelector("#paris");
 const rome = document.querySelector("#rome");
 
-submit.addEventListener("click", ()=>{retrieveData(search.value)});
+submit.addEventListener("click", (e)=>{
+    e.preventDefault();
+    retrieveData(search.value);
+    search.value = "";
+});
 madrid.addEventListener("click", ()=>{retrieveData("madrid")});
 paris.addEventListener("click", ()=>{retrieveData("paris")});
 rome.addEventListener("click", ()=>{retrieveData("rome")});

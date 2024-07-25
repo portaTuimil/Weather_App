@@ -1,9 +1,13 @@
 *{
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
 }
 
 body{
     height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     background-color: #343a40;
@@ -29,14 +33,13 @@ body{
 .rowContainer{
     height: 100%;
     width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    padding: 30px;
+    gap: 15px;
 }
 
 #currentCard{
-    width: 100%;
     border-radius: 30px;
 }
 
@@ -45,17 +48,28 @@ body{
 }
 
 .currentSVG{
-    height: 6rem;
-    width: 6rem;
+    height: 7rem;
+    width: 7rem;
     margin: 30px;
-}
-
-.hourDiv{
-    width: 15%;
 }
 
 .row2{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 5px;
+}
+
+.hourDiv{
+    width: clamp(250px, 15%, 20%);
+    padding: 3px;
+}
+
+.hourImg{
+    height: 4rem;
+    width: 4rem;
+}
+
+p {
+    margin-left: 10px;
 }
