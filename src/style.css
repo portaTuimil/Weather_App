@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body{
     height: 100vh;
     display: flex;
@@ -13,11 +17,40 @@ body{
     font-size: 1.8rem;
 }
 
-img {
+.d-block {
     height: 80vh;
     object-fit: cover;
 }
 
 .contentDiv{
     margin: auto;
+}
+
+.rowContainer{
+    display: grid;
+    grid-template-rows: 2fr 1fr 1fr;
+    height: 100%;
+    width: 100vw;
+}
+
+#currentCard{
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+}
+
+.rowContainer > * {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    padding: 10px;
+}
+
+.title{
+    margin: 30px;
+}
+
+.currentSVG{
+    height: 6rem;
+    width: 6rem;
+    margin: 30px;
 }

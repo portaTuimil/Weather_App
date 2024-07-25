@@ -3,7 +3,6 @@ const imgContainer = document.querySelector(".mainImg");
 const content = document.querySelector(".contentDiv");
 
 async function retrieveData(city){
-    deletePrevious()
     try{
         //Current data:
         const response = await fetch ("https://api.weatherapi.com/v1/forecast.json?key=66bcfc1fd3c246058af81851231405&q=" + city + "&days=1");
@@ -13,14 +12,36 @@ async function retrieveData(city){
         console.log(currentData)
         console.log(forecast.hour[2].time, forecast.hour[2].temp_c, forecast.hour[2].temp_f, forecast.hour[2].condition.text, forecast.hour[2].condition.icon);
         //loadData(data);
+        buildInterface(data);
     
     } catch(error){
         console.log(error);
     }
 }
 
-function deletePrevious(){
-    content.firstElementChild.remove()
+function buildInterface(data){
+    content.firstElementChild.remove();
+    content.classList.add("rowContainer");
+    const fRow = document.createElement("div");
+    const sRow = document.createElement("row");
+    const tRow = document.createElement("row");
+    content.appendChild(fRow).classList.add("row1");
+    content.appendChild(sRow).classList.add("row2");
+    content.appendChild(tRow).classList.add("row3");
+
+    //Current weather Card:
+    const currentCard = document.createElement("div")
+    fRow.setAttribute("id", "currentCard")
+    fRow.appendChild(currentCard).classList.add("card", "text-bg-dark");
+    const title = document.createElement("h2");
+    let img = document.createElement('img'); 
+    img.src = "https:" + data.current.condition.icon;  
+    title.textContent = (data.location.name + ", " + data.location.localtime + ":");
+    
+    currentCard.appendChild(title).classList.add("title")
+    currentCard.appendChild(img).classList.add("currentSVG"); 
+
+    //Weather by hour:
 }
 
 
@@ -33,7 +54,7 @@ function loadData(data){
     };
     let img = document.createElement('img'); 
     img.src = "https:" + data.current.condition.icon;  
-    imgContainer.appendChild(img); 
+    
     
 }*/
 
