@@ -2,7 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = { 
- 		entry:['./src/index.js', './src/main.css', './src/style.css', './src/assets/madrid.jpg', './src/assets/paris.jpg', './src/assets/rome.jpg'],
+ 		entry:['./src/index.js', './src/style.css', './src/assets/madrid.jpg', './src/assets/paris.jpg', './src/assets/rome.jpg'],
     output: {
       filename: 'main.js',
       clean: true,
